@@ -1,0 +1,14 @@
+{% extends 'interface/base.html' %}
+
+{% block title %} Interface {% endblock %}
+
+
+{% block body_block %}
+  {% if user.is_authenticated %}
+    <h1> {{user.username}} </h1>
+    <li><a href = "/accounts/logout/"> Logout </a> </liw>
+  {% else %}
+    <li><a href = "/accounts/register/"> Register Here </a></li>
+    <li><a href = "/accounts/login/"> Login </a></li>
+  {% endif %}
+{% endblock %}

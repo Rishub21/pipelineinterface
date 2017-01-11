@@ -1,0 +1,13 @@
+{% extends "interface/base.html" %}
+
+{% block title %} Interface {% endblock %}
+
+{% block body_block %}
+
+  <h1> {{user.username}} </h1>
+
+  {% for elem in output %}
+    <li><a href = "/interface/chart/{{ elem }}/"> {{elem}} </li>
+  {% endfor %}
+
+{% endblock %}

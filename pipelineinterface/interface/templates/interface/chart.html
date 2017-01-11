@@ -1,0 +1,25 @@
+{% extends "interface/base.html" %}
+
+{% block title %} {{ chart_head }} {% endblock %}
+
+{% block body_block %}
+<form action = "/interface/chart" method = "POST">
+  <table cellpadding = "5" width= "100%" >
+    <tr>
+        <th> Analyze </th>
+        <th> Project </th>
+        <th> MiseqSample </th>
+        <th> PValue </th>
+    </tr>
+
+    {% for i in table_list %}
+    <tr>
+      <td><input type = "radio" name = {{i}}> </td>
+    </tr>
+  {% endfor %}
+  </table>
+</form>
+
+
+
+{% endblock %}

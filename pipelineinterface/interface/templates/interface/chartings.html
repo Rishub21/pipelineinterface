@@ -1,0 +1,27 @@
+{% extends "interface/base.html" %}
+
+{% block title %} {{ chart_head }} {% endblock %}
+
+{% block body_block %}
+<form action = "" method = "POST">
+    {% csrf_token %}
+      <table cellpadding = "5" width= "100%" >
+        <tr>
+          <th> Analyze </th>
+          <th> Project </th>
+          <th> MiseqSample </th>
+          <th> PValue </th>
+        </tr>
+
+        {% for x in table_list %}
+        <tr>
+          <td><input type = "checkbox" value = {{ x.1 }} name = "selection"> </td>
+          <td> {{ chart_head }} </td> <!-- name of the sample -->
+          <td> {{ x.1 }}</td> <!-- name of the subsample -->
+          <td><input type = "text" name = {{ x.1 }} value = {{ x.2 }}> </td> <!-- x2 Pvalue -->
+        </tr>
+        {% endfor %}
+      </table>
+      <input class="btn btn-primary" type="submit" name="submit" value="Submit Analysis" />
+</form>
+{% endblock %}

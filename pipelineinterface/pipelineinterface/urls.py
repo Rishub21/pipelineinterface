@@ -1,3 +1,5 @@
+from registration.backends.simple.views import RegistrationView
+
 """pipelineinterface URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,7 +18,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^interface/', include('interface.urls')),
+    #url(r'accounts/register$/', MyRegistrationView.as_view(), name = "register"),
+    url(r'^accounts/', include("registration.backends.simple.urls")),
+
+
 ]
